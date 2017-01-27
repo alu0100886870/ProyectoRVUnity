@@ -1,0 +1,35 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class CollisionDaggerCopia : MonoBehaviour {
+
+	void Awake()
+	{
+		// Start the event listener
+		Debug.Log("Empezando listener!");
+		CharacterCollisions.Instance.ActivateObject += Activate;
+	}
+
+
+
+	// Use this for initialization
+	void Start()
+	{
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+	}
+
+
+	void Activate(Collider obj)
+	{
+		Debug.Log("Se ha colisionado con: " + obj);
+		if (obj.gameObject.name.Equals(gameObject.transform.name))
+		{
+			Debug.Log("Colision real: " + obj.gameObject.name + " y llamado desde: " + gameObject.transform.name);
+		}
+	}
+
+}
